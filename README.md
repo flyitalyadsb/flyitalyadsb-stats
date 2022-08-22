@@ -15,8 +15,8 @@ sudo bash /tmp/flyitalyadsbfeed.sh
 ### STEP 2: STATS
 
 ```
-wget -O /tmp/axstats.sh https://raw.githubusercontent.com/flyitalyadsb/flyitalyadsb-stats/master/stats.sh
-sudo bash /tmp/axstats.sh
+wget -O /tmp/flyitalyadsbstats.sh https://raw.githubusercontent.com/flyitalyadsb/flyitalyadsb-stats/master/stats.sh
+sudo bash /tmp/flyitalyadsbstats.sh
 ```
 
 ### Show stats URL on console
