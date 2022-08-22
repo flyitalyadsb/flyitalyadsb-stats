@@ -284,8 +284,9 @@ OLD_AGE=$AGE_COMPLAIN
 
 
 source /etc/default/flyitalyadsb
-curl -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@/run/flyitalyadsb-feed/receiver.json $REMOTE_URL  2>&1
 curl -sS -F "user"=${UTENTE} -F "uuid"=${UUID} $UUID_URL 2>&1
+sleep $WAIT_TIME
+curl -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@/run/flyitalyadsb-feed/receiver.json $REMOTE_URL  2>&1
 
 while true; do
     wait
