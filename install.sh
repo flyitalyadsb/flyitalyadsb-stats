@@ -88,7 +88,8 @@ UUID_FILE="/boot/flyitalyadsb-uuid"
 if ! [[ -f "$UUID_FILE" ]]; then
     UUID_FILE="/usr/local/share/flyitalyadsb/flyitalyadsb-uuid"
 fi
+SED=$(echo "$a" |sed -e 's$^$https://statistiche.flyitalyadsb.com/login?uuid=$' "$UUID_FILE")
 cat "$UUID_FILE"
 echo "#####################################"
-sed -e 's$^$https://www.adsbexchange.com/api/feeders/?feed=$' "$UUID_FILE"
+echo $SED"&user="$UTENTE
 echo "#####################################"
