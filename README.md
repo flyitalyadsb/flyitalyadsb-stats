@@ -1,57 +1,53 @@
-# adsbexchange-stats
-ADSBexchange.com Statistics Beta
+# Fly Italy Adsb-stats
+Fly Italy Adsb Statistics Beta
 
-You must be running ADSBexchange feeder.
+You must be running Fly Italy Adsb feeder.
 
-Stats only.  Be sure to install ADSBexchange.com feeder package first.
+Stats only.  Be sure to install Fly Italy Adsb feeder package first.
 
 ### STEP 1: FEEDER PACKAGE
 
 ```
-wget -O /tmp/axfeed.sh https://raw.githubusercontent.com/adsbxchange/adsb-exchange/master/install.sh
-sudo bash /tmp/axfeed.sh
+wget -O /tmp/flyitalyadsbfeed.sh https://raw.githubusercontent.com/flyitalyadsb/fly-italy-adsb/master/install.sh
+sudo bash /tmp/flyitalyadsbfeed.sh
 ```
 
 ### STEP 2: STATS
 
 ```
-wget -O /tmp/axstats.sh https://raw.githubusercontent.com/adsbxchange/adsbexchange-stats/master/stats.sh
+wget -O /tmp/axstats.sh https://raw.githubusercontent.com/flyitalyadsb/flyitalyadsb-stats/master/stats.sh
 sudo bash /tmp/axstats.sh
 ```
 
 ### Show stats URL on console
 ```
-adsbexchange-showurl
+flyitalyadsb-showurl
 ```
 
 
 ### Systemd Status
 
 ```
-sudo systemctl status adsbexchange-stats
+sudo systemctl status flyitalyadsb-stats
 ```
 
 ### Restart
 
 ```
-sudo systemctl restart adsbexchange-stats
+sudo systemctl restart flyitalyadsb-stats
 ```
 
 ### Figure the URL out yourself
 
-Replace UUID with the adsbx stats generated uuid:
+Replace UUID with the flyitalyadsb-stats generated uuid and USER:
 
-https://www.adsbexchange.com/api/feeders/?feed=UUID
+https://statistiche.flyitalyadsb.com/login?feed=UUID&user=USER
 
---adsbx-git-discord
+
 
 ### Uninstall
 
 ```
-sudo bash /usr/local/share/adsbexchange-stats/uninstall.sh
+sudo bash /usr/local/share/flyitalyadsb-stats/uninstall.sh
 ```
 
-For early versions just disable the service:
-```
-sudo systemctl disable --now adsbexchange-stats
-```
