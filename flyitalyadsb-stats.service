@@ -1,0 +1,19 @@
+[Unit]
+Description=flyitalyadsb Stats
+
+[Service]
+Type=simple
+SyslogIdentifier=flyitalyadsb-stats
+ExecStart=/usr/local/share/flyitalyadsb-stats/json-status
+RuntimeDirectory=flyitalyadsb-stats
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=30
+User=flyitalyadsb
+Nice=19
+IOSchedulingClass=idle
+
+
+[Install]
+WantedBy=multi-user.target

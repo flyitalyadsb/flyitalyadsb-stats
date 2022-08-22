@@ -1,0 +1,6 @@
+#!/bin/bash
+UUID_FILE="/boot/flyitalyadsb-uuid"
+if ! [[ -f "$UUID_FILE" ]]; then
+    UUID_FILE="/usr/local/share/flyitalyadsb/flyitalyadsb-uuid"
+fi
+sed -e 's$^$https://www.adsbexchange.com/api/feeders/?feed=$' "$UUID_FILE"
