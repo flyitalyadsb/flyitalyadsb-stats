@@ -19,7 +19,7 @@ DNS_IGNORE_LOCAL=0
 # List all paths, IN PREFERRED ORDER, separated by a SPACE
 # By default, only use the json from the feed client
 JSON_PATHS=("/run/flyitalyadsb-feed")
-
+GRAPHS_PATHS=("/run/graphs1090/")
 ######################################################################################################################
 # If you know what you're doing, and you want to override the search path, you can do it easily in
 # /etc/default/adsbexchange-stats, by setting the JSON_PATHS variable to something else (or even multiple).
@@ -288,6 +288,7 @@ curl -sS -F "user"=${UTENTE} -F "uuid"=${UUID} $UUID_URL 2>&1
 sleep $WAIT_TIME
 curl -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@/run/flyitalyadsb-feed/receiver.json $REMOTE_URL  2>&1
 
+TIMES=0
 while true; do
     wait
     # make this loop from now to the next start last exactly $WAIT_TIME secons
@@ -365,15 +366,20 @@ while true; do
     sleep 0.314
     gzip -c <$NEWFILE >$TEMP_DIR/upload.gz
     sleep 0.314
+	
 	# Push up the data.  'curl' will wait no more than $MAX_CURL_TIME seconds for upload to complete
 	curl -m $MAX_CURL_TIME $CURL_EXTRA -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@$TEMP_DIR/upload.gz $REMOTE_URL  2>&1
-
+        TIMES=$TIMES+1
 	RV=$?
 
 	if [ $RV -ne 0 ]; then
  		echo "WARNING: curl process returned non-zero ($RV): [$CURL]; Sleeping a little extra."
 		sleep $(( 5 + RANDOM % 15 ))
 	fi
+        if (( $TIMES > 50 )); then
+                tar czf $TEMP_DIR/graphs.tgz /run/graphs1090/ 2> /dev/null
+                curl -m $MAX_CURL_TIME $CURL_EXTRA -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@$TEMP_DIR/graphs.tgz $REMOTE_URL  2>&1
+                TIMES=0
+        fi
+
 done
-
-
