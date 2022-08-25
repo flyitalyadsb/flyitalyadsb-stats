@@ -8,6 +8,7 @@ rm -rf "$TMP"
 set -e
 git clone https://github.com/wiedehopf/graphs1090.git "$TMP"
 echo "Installing Graphs1090"
+cd "$TMP"
 bash install.sh
 TMP=/tmp/flyitalyadsb-stats-git
 rm -rf "$TMP"
