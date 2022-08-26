@@ -45,6 +45,7 @@ if [[ $install == 1 ]]; then
 fi
 
 mkdir -p /usr/local/bin
+chmod 755 flyitalyadsb-showurl
 cp flyitalyadsb-showurl /usr/local/bin/flyitalyadsb-showurl
 
 hash -r
