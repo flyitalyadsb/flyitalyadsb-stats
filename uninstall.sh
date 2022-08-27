@@ -1,15 +1,15 @@
 #!/bin/bash
 set -x
-IPATH=/usr/local/share/adsbexchange-stats/
+IPATH=/usr/local/share/flyitalyadsb-stats/
 
-systemctl disable --now adsbexchange-stats.service
+systemctl disable --now flyitalyadsb-stats.service
 
-rm -f /etc/systemd/system/adsbexchange-stats.service
+rm -f /etc/systemd/system/flyitalyadsb-stats.service
 rm -rf $IPATH
 
-rm /usr/local/bin/adsbexchange-showurl
+rm /usr/local/bin/flyitalyadsb-showurl
 
 set +x
 
 echo -----
-echo "adsbexchange-stats have been uninstalled!"
+echo "flyitalyadsb-stats have been uninstalled!"
