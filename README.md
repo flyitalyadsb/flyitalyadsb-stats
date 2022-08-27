@@ -4,6 +4,7 @@ Fly Italy Adsb Statistics Beta
 You must be running Fly Italy Adsb feeder.
 
 Stats only.  Be sure to install Fly Italy Adsb feeder package first.
+Based on Adsbx stats.
 
 ### STEP 1: FEEDER PACKAGE
 
