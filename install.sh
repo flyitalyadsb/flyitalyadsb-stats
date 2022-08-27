@@ -91,7 +91,10 @@ if ! [[ -f "$UUID_FILE" ]]; then
 fi
 source /etc/default/flyitalyadsb
 SED=$(echo "$a" |sed -e 's$^$https://statistiche.flyitalyadsb.com/login?uuid=$' "$UUID_FILE")
-cat "$UUID_FILE"
 echo "#####################################"
+echo "Now you can go to this link to access the graphs and the map"
 echo $SED"&user="$UTENTE
 echo "#####################################"
+echo "Or you can go to https://statistiche.flyitalyadsb.com/ and log in with your receiver name and your uuid:"
+cat "$UUID_FILE"
+
