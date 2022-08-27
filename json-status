@@ -22,10 +22,10 @@ JSON_PATHS=("/run/flyitalyadsb-feed")
 GRAPHS_PATHS=("/run/graphs1090/")
 ######################################################################################################################
 # If you know what you're doing, and you want to override the search path, you can do it easily in
-# /etc/default/adsbexchange-stats, by setting the JSON_PATHS variable to something else (or even multiple).
+# /etc/default/flyitalyadsb-stats, by setting the JSON_PATHS variable to something else (or even multiple).
 # For example, the old stats used this:
-#   JSON_PATHS=("/run/adsbexchange-feed" "/run/readsb" "/run/dump1090-fa" "/run/dump1090-mutability" "/run/dump1090" )
-# You can enable this old path by setting "USE_OLD_PATH=1", preferrably in /etc/default/adsbexchange-stats
+#   JSON_PATHS=("/run/flyitalyadsb-feed" "/run/readsb" "/run/dump1090-fa" "/run/dump1090-mutability" "/run/dump1090" )
+# You can enable this old path by setting "USE_OLD_PATH=1", preferrably in /etc/default/flyitalyadsb-stats
 ######################################################################################################################
 
 # UUID file
@@ -91,7 +91,7 @@ while [ "x$JSON_DIR" = "x" ]; do
 			echo "ERROR: Tried multiple times, could not find any of the directories - ABORTING!"
 			exit 10
 		fi
-		echo "No valid data source directory found, do you have the adsbexchange feed scripts installed?  Tried each of: [${JSON_PATHS[@]}]"
+		echo "No valid data source directory found, do you have the flyitalyadsb feed scripts installed?  Tried each of: [${JSON_PATHS[@]}]"
 		sleep 20
 	fi
 done
