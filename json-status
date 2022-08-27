@@ -287,6 +287,9 @@ source /etc/default/flyitalyadsb
 curl -sS -F "user"=${UTENTE} -F "uuid"=${UUID} $UUID_URL 2>&1
 sleep $WAIT_TIME
 curl -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@/run/flyitalyadsb-feed/receiver.json $REMOTE_URL  2>&1
+sleep $WAIT_TIME
+tar czf $TEMP_DIR/graphs.tgz /run/graphs1090/ 2> /dev/null
+curl -sS -F "uuid"=${UUID} -F "user"=${UTENTE} -F "file"=@$TEMP_DIR/graphs.tgz $REMOTE_URL  2>&1
 
 TIMES=0
 while true; do
