@@ -64,7 +64,7 @@ fi
 # copy the service file
 cp flyitalyadsb-stats.service /etc/systemd/system/flyitalyadsb-stats.service
 
-# add adsbexchange user to video group for vcgencmd get_throttled if the system has that command and it works:
+# add flyitalyadsb user to video group for vcgencmd get_throttled if the system has that command and it works:
 if vcgencmd get_throttled &>/dev/null; then
     adduser flyitalyadsb video
 fi
